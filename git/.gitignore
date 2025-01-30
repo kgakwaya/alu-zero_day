@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check for files with a `~` in their names
+if git diff --cached --name-only | grep -q '~'; then
+    echo "Error: You cannot push files with '~' in their names."
+    exit 1
+fi
+
+# If no '~' files are detected, proceed with the push
+exit 0
